@@ -18,7 +18,7 @@ public class Zfunction {
         z[0] = s.length(); // z(0)是整個字串的長度
 
         int L = 0, R = 0; // s[L, R]即是s[j ... j+z(j)-1]。
-        for (int i = 1; i < 9; ++i) {
+        for (int i = 1; i < s.length(); ++i) {
             // i'，i用s[L, R]映至i'
             // 向左移動L單位
             // s[L]移到s[0]，減了L；s[i]移到s[i-L]，也是減了L。
@@ -58,5 +58,24 @@ public class Zfunction {
             }
         }
     }
+
+
+//     void z_function()  較簡便寫法
+// {
+//     memset(z, 0, sizeof(0));    // 初始化為0
+//     z[0] = 9;                   // z(0)是整個字串的長度
+ 
+//     int L = 0, R = 1;           // 改成半開區間s[L, R)
+//     for (int i=1; i<9; ++i)
+//         if (R <= i || z[i-L] >= R-i)
+//         {
+//             int x = (R <= i ? i : R);
+//             while (x < 9 && s[x] == s[x-i]) x++;
+//             z[i] = x-i;
+//             if (i < x) {L = i; R = x;}
+//         }
+//         else
+//             z[i] = z[i-L];
+// }  
 
 }
